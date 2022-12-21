@@ -1,0 +1,76 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Sokol\\Desktop\\Dla_studiow\\Magistr\\Semestr 3\\IoT\\IoT Project\\VirtualDevice\\VirtualDevice.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Sokol\\Desktop\\Dla_studiow\\Magistr\\Semestr 3\\IoT\\IoT Project\\VirtualDevice\\VirtualDevice.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Sokol\\Desktop\\Dla_studiow\\Magistr\\Semestr 3\\IoT\\IoT Project\\VirtualDevice\\VirtualDevice.csproj",
+        "projectName": "VirtualDevice",
+        "projectPath": "C:\\Users\\Sokol\\Desktop\\Dla_studiow\\Magistr\\Semestr 3\\IoT\\IoT Project\\VirtualDevice\\VirtualDevice.csproj",
+        "packagesPath": "C:\\Users\\Sokol\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Sokol\\Desktop\\Dla_studiow\\Magistr\\Semestr 3\\IoT\\IoT Project\\VirtualDevice\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Sokol\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.Azure.Devices": {
+              "target": "Package",
+              "version": "[1.38.2, )"
+            },
+            "Microsoft.Azure.Devices.Client": {
+              "target": "Package",
+              "version": "[1.41.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

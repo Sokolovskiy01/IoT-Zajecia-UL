@@ -1,0 +1,21 @@
+{
+  "version": 2,
+  "dgSpecHash": "LQjcVB7QO5ug8G0Is/SlS2SNNZig2fD1FD9x+yMwXPPTsYnENxdLSPYAmkBlycPXtIq3SCF9XEICg2acjsf2Mw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Sokol\\Desktop\\Dla_studiow\\Magistr\\Semestr 3\\IoT\\IoT Project\\Projekt\\Projekt.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Sokol\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "C:\\Users\\Sokol\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
+    "C:\\Users\\Sokol\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\Sokol\\.nuget\\packages\\opc.uafx.client\\2.30.0\\opc.uafx.client.2.30.0.nupkg.sha512",
+    "C:\\Users\\Sokol\\.nuget\\packages\\portable.bouncycastle\\1.8.6\\portable.bouncycastle.1.8.6.nupkg.sha512",
+    "C:\\Users\\Sokol\\.nuget\\packages\\system.codedom\\4.7.0\\system.codedom.4.7.0.nupkg.sha512",
+    "C:\\Users\\Sokol\\.nuget\\packages\\system.management\\4.7.0\\system.management.4.7.0.nupkg.sha512",
+    "C:\\Users\\Sokol\\.nuget\\packages\\system.private.servicemodel\\4.5.3\\system.private.servicemodel.4.5.3.nupkg.sha512",
+    "C:\\Users\\Sokol\\.nuget\\packages\\system.reflection.dispatchproxy\\4.5.0\\system.reflection.dispatchproxy.4.5.0.nupkg.sha512",
+    "C:\\Users\\Sokol\\.nuget\\packages\\system.security.accesscontrol\\4.7.0\\system.security.accesscontrol.4.7.0.nupkg.sha512",
+    "C:\\Users\\Sokol\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
+    "C:\\Users\\Sokol\\.nuget\\packages\\system.servicemodel.primitives\\4.5.3\\system.servicemodel.primitives.4.5.3.nupkg.sha512"
+  ],
+  "logs": []
+}
