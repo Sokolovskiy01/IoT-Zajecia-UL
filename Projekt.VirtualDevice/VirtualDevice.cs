@@ -64,5 +64,50 @@ namespace Projekt.VirtualDevice
 
         #endregion Recieve Message
 
+        #region Device Twin Methods
+
+        public async Task SetTwinDataAsync(int deviceError, int productionRate, DateTime lastMaintananceDate, DateTime lastErrorDate)
+        {
+            var deviceTwin = await _deviceClient.GetTwinAsync();
+
+            TwinCollection reportedProperties = new TwinCollection();
+            reportedProperties["device_errors"] = deviceError;
+            reportedProperties["production_rate"] = productionRate;
+            reportedProperties["last_maintenance_date"] = lastMaintananceDate;
+            reportedProperties["last_error_date"] = lastErrorDate;
+            
+            await  _deviceClient.UpdateReportedPropertiesAsync(reportedProperties);
+            Console.WriteLine("Device twin was set...");
+        }
+
+        public async Task UpdateTwinErrorDataAsync(int deviceError)
+        {
+            var deviceTwin = await _deviceClient.GetTwinAsync();
+            Console.WriteLine($"{DateTime.Now}> Device Twin value was updated.");
+
+            TwinCollection reportedProperties = new TwinCollection();
+            reportedProperties["device_errors"] = deviceError;
+            reportedProperties["last_error_date"] = DateTime.Now;
+
+            await _deviceClient.UpdateReportedPropertiesAsync(reportedProperties);
+        }
+
+        private async Task OnDesiredProductionRateChanged(TwinCollection desiredProperties, object userContext)
+        {
+            Console.WriteLine("Device Twin's desired production rate changed, id: " + (string)userContext);
+            int newProductionRate = desiredProperties["production_rate"];
+            string nodeId = (string)userContext + "/ProductionRate";
+
+            OpcStatus result = _opcClient.WriteNode(nodeId, newProductionRate);
+            Console.WriteLine($"\t{DateTime.Now}> opcClient.WriteNode is result good: " + result.IsGood.ToString());
+            TwinCollection reportedProperties = new TwinCollection();
+            reportedProperties["last_datetime_desired_production_rate_changed"] = DateTime.Now;
+            reportedProperties["production_rate"] = newProductionRate;
+
+            await _deviceClient.UpdateReportedPropertiesAsync(reportedProperties).ConfigureAwait(false);
+        }
+
+        #endregion Device Twin Methods
+
     }
 }

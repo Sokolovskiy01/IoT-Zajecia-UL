@@ -33,42 +33,22 @@ class Program
                 OpcToIoTHubIds.Add("ns=2;s=Device 6", "Device_6");
 
                 Dictionary<VirtualDevice, OpcDeviceData> iotHubDeviceToOpcDeviceData = new Dictionary<VirtualDevice, OpcDeviceData>();
-                foreach (var opcDeviceId in OpcToIoTHubIds)
+                foreach (var opcIdToIotId in OpcToIoTHubIds)
                 {
-                    DeviceClient deviceClient = DeviceClient.CreateFromConnectionString(Resources.iotDeviceConnectionString, opcDeviceId.Value);
+                    DeviceClient deviceClient = DeviceClient.CreateFromConnectionString(Resources.iotDeviceConnectionString, opcIdToIotId.Value);
                     await deviceClient.OpenAsync();
                     VirtualDevice vDevice = new VirtualDevice(deviceClient, opcClient);
-                    OpcDeviceData deviceData = new OpcDeviceData(opcDeviceId.Key);
+                    OpcDeviceData deviceData = new OpcDeviceData(opcIdToIotId.Key, opcIdToIotId.Value);
 
                     readOpcDeviceData(opcClient, deviceData);
 
+                    Console.WriteLine("Device \"{0}\" is connected to IoT device \"{1}\"", opcIdToIotId.Key, opcIdToIotId.Value);
+
+                    await vDevice.SetTwinDataAsync(deviceData.DeviceError, deviceData.ProductionRate, deviceData.LastMaitananceDate.Date, deviceData.LastErrorDate);
+
+                    if (deviceData.DeviceError > 0) sendDeviceErrorReport(vDevice, deviceData);
+
                     iotHubDeviceToOpcDeviceData.Add(vDevice, deviceData);
-
-
-                }
-
-
-
-                //Read each device data and connect to device twin
-                //foreach (var )
-
-
-
-                // search for devices
-                /*foreach (var device in serverNode.Children())
-                {
-                    string nodeName = device.DisplayName.ToString();
-                    Console.WriteLine(device.NodeId);
-                    if (nodeName.Contains("Device"))
-                    {
-                        // Device found
-                        //devicesList.Add(client.BrowseNode(device.NodeId));
-
-                        //OpcDeviceData newDevice = new OpcDeviceData(device.NodeId);
-                        OpcValue ProductionStatus = opcClient.ReadNode(device.NodeId + "/ProductionStatus");
-
-                        //deviceDatas.Add(newDevice);
-                    }
                 }
 
                 while(true)
@@ -78,7 +58,7 @@ class Program
 
 
                     await Task.Delay(10000);
-                }*/
+                }
 
                 opcClient.Disconnect();
             }
@@ -89,6 +69,12 @@ class Program
         }
 
 
+    }
+
+    private async static void sendDeviceErrorReport(VirtualDevice virtualDevice, OpcDeviceData deviceData)
+    {
+        await virtualDevice.SendMessage(deviceData.getErrorsJSON());
+        await virtualDevice.UpdateTwinErrorDataAsync(deviceData.DeviceError);
     }
 
     private static void readOpcDeviceData(OpcClient opcClient, OpcDeviceData deviceData)
