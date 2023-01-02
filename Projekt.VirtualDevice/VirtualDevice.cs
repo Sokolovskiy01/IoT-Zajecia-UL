@@ -92,6 +92,18 @@ namespace Projekt.VirtualDevice
             await _deviceClient.UpdateReportedPropertiesAsync(reportedProperties);
         }
 
+        public async Task UpdateTwinProductionRateAsync(int deviceError, int productionRate)
+        {
+            var deviceTwin = await _deviceClient.GetTwinAsync();
+            Console.WriteLine($"{DateTime.Now}> Device Twin value was updated.");
+
+            TwinCollection reportedProperties = new TwinCollection();
+            reportedProperties["device_errors"] = deviceError;
+            reportedProperties["production_rate"] = productionRate;
+
+            await _deviceClient.UpdateReportedPropertiesAsync(reportedProperties);
+        }
+
         private async Task OnDesiredProductionRateChanged(TwinCollection desiredProperties, object userContext)
         {
             Console.WriteLine("Device Twin's desired production rate changed, id: " + (string)userContext);
@@ -108,6 +120,60 @@ namespace Projekt.VirtualDevice
         }
 
         #endregion Device Twin Methods
+
+        #region Direct Methods Handlers
+
+        private async Task<MethodResponse> DecreaseProductRateHandler(MethodRequest methodRequest, object userContext)
+        {
+            Console.WriteLine($"\t{DateTime.Now}> METHOD EXECUTED: {methodRequest.Name}");
+            string nodeId = (string)userContext;
+            int rate = (int)_opcClient.ReadNode(nodeId + "/ProductionRate").Value;
+            int error = (int)_opcClient.ReadNode(nodeId + "/DeviceError").Value;
+
+            OpcStatus result = _opcClient.WriteNode(nodeId + "/ProductionRate", rate - 10);
+            Console.WriteLine(result.ToString());
+            await UpdateTwinProductionRateAsync(error, rate - 10);
+            return new MethodResponse(0);
+        }
+
+        private async Task<MethodResponse> EmergencyStopHandler(MethodRequest methodRequest, object userContext)
+        {
+            Console.WriteLine($"\t{DateTime.Now}> METHOD EXECUTED: {methodRequest.Name}");
+            string nodeId = (string)userContext;
+            object[] result = _opcClient.CallMethod(nodeId, nodeId + "/EmergencyStop");
+            return new MethodResponse(0);
+        }
+
+        private async Task<MethodResponse> ResetErrorStatusHandler(MethodRequest methodRequest, object userContext)
+        {
+            Console.WriteLine($"\t{DateTime.Now}> METHOD EXECUTED: {methodRequest.Name}");
+            string nodeId = (string)userContext;
+            object[] result = _opcClient.CallMethod(nodeId, nodeId + "/ResetErrorStatus");
+            return new MethodResponse(0);
+        }
+
+        private async Task<MethodResponse> MaintenanceDoneHandler(MethodRequest methodRequest, object userContext)
+        {
+            Console.WriteLine($"\t{DateTime.Now}> METHOD EXECUTED: {methodRequest.Name}");
+
+            var twin = await _deviceClient.GetTwinAsync();
+
+            var reportedProperties = new TwinCollection();
+            reportedProperties["last_maintenance_date"] = DateTime.Now;
+
+            await _deviceClient.UpdateReportedPropertiesAsync(reportedProperties);
+
+            Console.WriteLine($"\n{DateTime.Now}> Device Twin Maintenance Done.");
+            return new MethodResponse(0);
+        }
+
+        private static async Task<MethodResponse> DefaultServiceHandler(MethodRequest methodRequest, object userContext)
+        {
+            Console.WriteLine($"\t{DateTime.Now}> METHOD NOT EXIST: {methodRequest.Name}");
+            return new MethodResponse(0);
+        }
+
+        #endregion Direct Methods Handlers
 
     }
 }
