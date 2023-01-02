@@ -11,12 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("VirtualDevice")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Projekt.VirtualDevice")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("VirtualDevice")]
-[assembly: System.Reflection.AssemblyTitleAttribute("VirtualDevice")]
+[assembly: System.Reflection.AssemblyProductAttribute("Projekt.VirtualDevice")]
+[assembly: System.Reflection.AssemblyTitleAttribute("Projekt.VirtualDevice")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Wygenerowane przez klasę WriteCodeFragment programu MSBuild.

@@ -24,3 +24,29 @@ C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\Projekt\obj\Debug\net6.
 C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\Projekt\obj\Debug\net6.0\ref\Projekt.dll
 C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\Projekt\obj\Debug\net6.0\Projekt.pdb
 C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\Projekt\obj\Debug\net6.0\Projekt.genruntimeconfig.cache
+C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\IoT Project\Projekt\bin\Debug\net6.0\Projekt.exe
+C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\IoT Project\Projekt\bin\Debug\net6.0\Projekt.deps.json
+C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\IoT Project\Projekt\bin\Debug\net6.0\Projekt.runtimeconfig.json
+C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\IoT Project\Projekt\bin\Debug\net6.0\Projekt.dll
+C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\IoT Project\Projekt\bin\Debug\net6.0\ref\Projekt.dll
+C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\IoT Project\Projekt\bin\Debug\net6.0\Projekt.pdb
+C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\IoT Project\Projekt\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\IoT Project\Projekt\bin\Debug\net6.0\Opc.UaFx.Client.dll
+C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\IoT Project\Projekt\bin\Debug\net6.0\BouncyCastle.Crypto.dll
+C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\IoT Project\Projekt\bin\Debug\net6.0\System.CodeDom.dll
+C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\IoT Project\Projekt\bin\Debug\net6.0\System.Management.dll
+C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\IoT Project\Projekt\bin\Debug\net6.0\System.ServiceModel.Primitives.dll
+C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\IoT Project\Projekt\bin\Debug\net6.0\System.ServiceModel.dll
+C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\IoT Project\Projekt\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.0\System.Management.dll
+C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\IoT Project\Projekt\bin\Debug\net6.0\runtimes\unix\lib\netstandard2.0\System.Private.ServiceModel.dll
+C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\IoT Project\Projekt\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Private.ServiceModel.dll
+C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\IoT Project\Projekt\obj\Debug\net6.0\Projekt.csproj.AssemblyReference.cache
+C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\IoT Project\Projekt\obj\Debug\net6.0\Projekt.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\IoT Project\Projekt\obj\Debug\net6.0\Projekt.AssemblyInfoInputs.cache
+C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\IoT Project\Projekt\obj\Debug\net6.0\Projekt.AssemblyInfo.cs
+C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\IoT Project\Projekt\obj\Debug\net6.0\Projekt.csproj.CoreCompileInputs.cache
+C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\IoT Project\Projekt\obj\Debug\net6.0\Projekt.csproj.CopyComplete
+C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\IoT Project\Projekt\obj\Debug\net6.0\Projekt.dll
+C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\IoT Project\Projekt\obj\Debug\net6.0\ref\Projekt.dll
+C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\IoT Project\Projekt\obj\Debug\net6.0\Projekt.pdb
+C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\IoT Project\Projekt\obj\Debug\net6.0\Projekt.genruntimeconfig.cache

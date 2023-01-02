@@ -1,6 +1,6 @@
 ﻿using Opc.UaFx;
 
-class DeviceData
+class OpcDeviceData
 {
     OpcNodeId nodeId { get; }
 
@@ -19,7 +19,7 @@ class DeviceData
     public Double Temperature { get; set; } = 0.0;
     public Int32 DeviceError { get; set; } = 0;
 
-    public DeviceData(OpcNodeId nodeId)
+    public OpcDeviceData(OpcNodeId nodeId)
     {
         this.nodeId = nodeId;
     }

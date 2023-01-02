@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Sokol\\Desktop\\Dla_studiow\\Magistr\\Semestr 3\\IoT\\IoT Project\\VirtualDevice\\VirtualDevice.csproj": {}
+    "C:\\Users\\Sokol\\Desktop\\Dla_studiow\\Magistr\\Semestr 3\\IoT\\IoT Project\\Projekt.VirtualDevice\\Projekt.VirtualDevice.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Sokol\\Desktop\\Dla_studiow\\Magistr\\Semestr 3\\IoT\\IoT Project\\VirtualDevice\\VirtualDevice.csproj": {
+    "C:\\Users\\Sokol\\Desktop\\Dla_studiow\\Magistr\\Semestr 3\\IoT\\IoT Project\\Projekt.VirtualDevice\\Projekt.VirtualDevice.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Sokol\\Desktop\\Dla_studiow\\Magistr\\Semestr 3\\IoT\\IoT Project\\VirtualDevice\\VirtualDevice.csproj",
-        "projectName": "VirtualDevice",
-        "projectPath": "C:\\Users\\Sokol\\Desktop\\Dla_studiow\\Magistr\\Semestr 3\\IoT\\IoT Project\\VirtualDevice\\VirtualDevice.csproj",
+        "projectUniqueName": "C:\\Users\\Sokol\\Desktop\\Dla_studiow\\Magistr\\Semestr 3\\IoT\\IoT Project\\Projekt.VirtualDevice\\Projekt.VirtualDevice.csproj",
+        "projectName": "Projekt.VirtualDevice",
+        "projectPath": "C:\\Users\\Sokol\\Desktop\\Dla_studiow\\Magistr\\Semestr 3\\IoT\\IoT Project\\Projekt.VirtualDevice\\Projekt.VirtualDevice.csproj",
         "packagesPath": "C:\\Users\\Sokol\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Sokol\\Desktop\\Dla_studiow\\Magistr\\Semestr 3\\IoT\\IoT Project\\VirtualDevice\\obj\\",
+        "outputPath": "C:\\Users\\Sokol\\Desktop\\Dla_studiow\\Magistr\\Semestr 3\\IoT\\IoT Project\\Projekt.VirtualDevice\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -51,6 +51,10 @@
             "Microsoft.Azure.Devices.Client": {
               "target": "Package",
               "version": "[1.41.3, )"
+            },
+            "Opc.UaFx.Client": {
+              "target": "Package",
+              "version": "[2.30.0, )"
             }
           },
           "imports": [
