@@ -2,6 +2,8 @@
 
 class OpcDeviceData
 {
+    public OpcNodeId nodeId { get; }
+
     public Int32 ProductionStatus { get; set; } = 0;
     public String WorkorderId { get; set; } = string.Empty;
 
@@ -16,10 +18,23 @@ class OpcDeviceData
     public Int64 BadCount { get; set; } = 0;
     public Double Temperature { get; set; } = 0.0;
     public Int32 DeviceError { get; set; } = 0;
+    public DateTime lastMaitananceDate { get; set; }
+    public DateTime lastErrorDate { get; set; }
 
-    public OpcDeviceData()
+    public OpcDeviceData(OpcNodeId nodeId)
     {
-        
+        this.nodeId = nodeId;
+    }
+
+    public string getTelemetryJSON(string ioTDeviceId)
+    {
+        return "{\"opc_device_id\":\"" + nodeId.ToString() + "\"," +
+            "\"iot_device_id\":\"" + ioTDeviceId + "\"," +
+            "\"production_status\":" + ProductionStatus + "," +
+            "\"workorder_id\":\"" + WorkorderId + "\"," +
+            "\"good_count\":" + GoodCount + "," +
+            "\"bad_count\":" + BadCount + "," +
+            "\"temperature\":" + Temperature.ToString().Replace(',','.') + "}";
     }
 
 }

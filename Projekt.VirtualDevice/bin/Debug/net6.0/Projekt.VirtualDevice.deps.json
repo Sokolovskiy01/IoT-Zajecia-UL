@@ -6,15 +6,14 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "Projekt/1.0.0": {
+      "Projekt.VirtualDevice/1.0.0": {
         "dependencies": {
           "Microsoft.Azure.Devices": "1.38.2",
           "Microsoft.Azure.Devices.Client": "1.41.3",
-          "Opc.UaFx.Client": "2.30.0",
-          "Projekt.VirtualDevice": "1.0.0"
+          "Opc.UaFx.Client": "2.30.0"
         },
         "runtime": {
-          "Projekt.dll": {}
+          "Projekt.VirtualDevice.dll": {}
         }
       },
       "Azure.Core/1.22.0": {
@@ -1084,21 +1083,11 @@
             "fileVersion": "9.3.2.0"
           }
         }
-      },
-      "Projekt.VirtualDevice/1.0.0": {
-        "dependencies": {
-          "Microsoft.Azure.Devices": "1.38.2",
-          "Microsoft.Azure.Devices.Client": "1.41.3",
-          "Opc.UaFx.Client": "2.30.0"
-        },
-        "runtime": {
-          "Projekt.VirtualDevice.dll": {}
-        }
       }
     }
   },
   "libraries": {
-    "Projekt/1.0.0": {
+    "Projekt.VirtualDevice/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -1907,11 +1896,6 @@
       "sha512": "sha512-iVH/VhGsViIEo1G89BuK84RBsArJQOFy5sM6mrZ2IeXPcRkEmsy1dWsbgXtXLh1odiTadu2zMEdyUWIkyC2U7w==",
       "path": "windowsazure.storage/9.3.2",
       "hashPath": "windowsazure.storage.9.3.2.nupkg.sha512"
-    },
-    "Projekt.VirtualDevice/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
     }
   }
 }

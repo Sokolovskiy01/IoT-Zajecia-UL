@@ -1,0 +1,12 @@
+C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\IoT Project\Projekt.VirtualDevice\obj\Debug\net6.0\Projekt.VirtualDevice.csproj.AssemblyReference.cache
+C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\IoT Project\Projekt.VirtualDevice\obj\Debug\net6.0\Projekt.VirtualDevice.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\IoT Project\Projekt.VirtualDevice\obj\Debug\net6.0\Projekt.VirtualDevice.AssemblyInfoInputs.cache
+C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\IoT Project\Projekt.VirtualDevice\obj\Debug\net6.0\Projekt.VirtualDevice.AssemblyInfo.cs
+C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\IoT Project\Projekt.VirtualDevice\obj\Debug\net6.0\Projekt.VirtualDevice.csproj.CoreCompileInputs.cache
+C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\IoT Project\Projekt.VirtualDevice\bin\Debug\net6.0\Projekt.VirtualDevice.deps.json
+C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\IoT Project\Projekt.VirtualDevice\bin\Debug\net6.0\Projekt.VirtualDevice.dll
+C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\IoT Project\Projekt.VirtualDevice\bin\Debug\net6.0\ref\Projekt.VirtualDevice.dll
+C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\IoT Project\Projekt.VirtualDevice\bin\Debug\net6.0\Projekt.VirtualDevice.pdb
+C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\IoT Project\Projekt.VirtualDevice\obj\Debug\net6.0\Projekt.VirtualDevice.dll
+C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\IoT Project\Projekt.VirtualDevice\obj\Debug\net6.0\ref\Projekt.VirtualDevice.dll
+C:\Users\Sokol\Desktop\Dla_studiow\Magistr\Semestr 3\IoT\IoT Project\Projekt.VirtualDevice\obj\Debug\net6.0\Projekt.VirtualDevice.pdb
