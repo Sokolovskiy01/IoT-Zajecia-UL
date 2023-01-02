@@ -2,8 +2,6 @@
 
 class OpcDeviceData
 {
-    OpcNodeId nodeId { get; }
-
     public Int32 ProductionStatus { get; set; } = 0;
     public String WorkorderId { get; set; } = string.Empty;
 
@@ -19,9 +17,9 @@ class OpcDeviceData
     public Double Temperature { get; set; } = 0.0;
     public Int32 DeviceError { get; set; } = 0;
 
-    public OpcDeviceData(OpcNodeId nodeId)
+    public OpcDeviceData()
     {
-        this.nodeId = nodeId;
+        
     }
 
 }
