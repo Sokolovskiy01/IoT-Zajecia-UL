@@ -20,8 +20,6 @@ class Program
 
                 OpcNodeInfo serverNode = opcClient.BrowseNode(OpcObjectTypes.ObjectsFolder);
 
-
-
                 // Zakładamy, że mamy 6 urządzeń na produkcji i na iot Hub
                 //Connect IoT Hub devices to Opc Client
                 Dictionary<string, string> OpcToIoTHubIds = new Dictionary<string, string>();
@@ -45,6 +43,7 @@ class Program
                     Console.WriteLine("Device \"{0}\" is connected to IoT device \"{1}\"", opcIdToIotId.Key, opcIdToIotId.Value);
 
                     await vDevice.SetTwinDataAsync(deviceData.DeviceError, deviceData.ProductionRate, deviceData.LastMaitananceDate.Date, deviceData.LastErrorDate);
+                    await vDevice.InitializeHandlers(opcIdToIotId.Key);
 
                     if (deviceData.DeviceError > 0) sendDeviceErrorReport(vDevice, deviceData);
 
@@ -53,10 +52,20 @@ class Program
 
                 while(true)
                 {
+                    foreach (var device in iotHubDeviceToOpcDeviceData)
+                    {
+                        int prevErrorCode = device.Value.DeviceError;
+                        readOpcDeviceData(opcClient, device.Value);
+                        if (device.Value.ProductionStatus == 1)
+                        {
+                            await device.Key.SendMessage(device.Value.getTelemetryJSON());
+                            if (device.Value.DeviceError > 0 && device.Value.DeviceError != prevErrorCode)
+                            {
+                                sendDeviceErrorReport(device.Key, device.Value);
+                            }
+                        }
+                    }
                     Console.WriteLine('.');
-
-
-
                     await Task.Delay(10000);
                 }
 

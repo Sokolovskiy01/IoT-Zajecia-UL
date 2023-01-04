@@ -20,7 +20,12 @@
       "ProjectGuid": "85b3c4e3-fd50-4780-bf38-9ceb3a05be83",
       "DisplayName": "VirtualDevice",
       "ColorIndex": 2
+    },
+    "632d9153-eb47-4507-bbac-571dd425af29": {
+      "ProjectGuid": "632d9153-eb47-4507-bbac-571dd425af29",
+      "DisplayName": "Projekt.VirtualDevice",
+      "ColorIndex": 3
     }
   },
-  "NextColorIndex": 3
+  "NextColorIndex": 4
 }

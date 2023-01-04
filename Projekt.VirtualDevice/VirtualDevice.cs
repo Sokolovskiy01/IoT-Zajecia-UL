@@ -27,7 +27,7 @@ namespace Projekt.VirtualDevice
                 Message message = new Message(Encoding.UTF8.GetBytes(messageData));
                 message.ContentType = MediaTypeNames.Application.Json;
                 message.ContentEncoding = "utf-8";
-                Console.WriteLine($"\t{DateTime.Now.ToLocalTime()}> D2C Sending message: {messageData}");
+                Console.WriteLine($"{DateTime.Now.ToLocalTime()}> D2C Sending message: {messageData}");
 
                 await _deviceClient.SendEventAsync(message);
                 Console.WriteLine();
@@ -171,6 +171,19 @@ namespace Projekt.VirtualDevice
         {
             Console.WriteLine($"\t{DateTime.Now}> METHOD NOT EXIST: {methodRequest.Name}");
             return new MethodResponse(0);
+        }
+
+        public async Task InitializeHandlers(string userContext)
+        {
+            await _deviceClient.SetReceiveMessageHandlerAsync(OnC2dMessageReceivedAsync, userContext);
+
+            await _deviceClient.SetMethodHandlerAsync("EmergencyStop", EmergencyStopHandler, userContext);
+            await _deviceClient.SetMethodHandlerAsync("ResetErrorStatus", ResetErrorStatusHandler, userContext);
+            await _deviceClient.SetMethodHandlerAsync("DecreaseProductRate", DecreaseProductRateHandler, userContext);
+            await _deviceClient.SetMethodHandlerAsync("MaintenanceDone", MaintenanceDoneHandler, userContext);
+            await _deviceClient.SetMethodDefaultHandlerAsync(DefaultServiceHandler, userContext);
+
+            await _deviceClient.SetDesiredPropertyUpdateCallbackAsync(OnDesiredProductionRateChanged, userContext);
         }
 
         #endregion Direct Methods Handlers
