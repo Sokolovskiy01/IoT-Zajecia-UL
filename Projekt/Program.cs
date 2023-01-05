@@ -40,7 +40,7 @@ class Program
 
                     readOpcDeviceData(opcClient, deviceData);
 
-                    Console.WriteLine("Device \"{0}\" is connected to IoT device \"{1}\"", opcIdToIotId.Key, opcIdToIotId.Value);
+                    Console.WriteLine("OPCUA Device \"{0}\" is connected to IoT device \"{1}\"", opcIdToIotId.Key, opcIdToIotId.Value);
 
                     await vDevice.SetTwinDataAsync(deviceData.DeviceError, deviceData.ProductionRate, deviceData.LastMaitananceDate.Date, deviceData.LastErrorDate);
                     await vDevice.InitializeHandlers(opcIdToIotId.Key);
@@ -65,10 +65,8 @@ class Program
                             }
                         }
                     }
-                    Console.WriteLine('.');
-                    await Task.Delay(10000);
+                    await Task.Delay(5000);
                 }
-
                 opcClient.Disconnect();
             }
             catch (OpcException opcex)
