@@ -65,6 +65,7 @@ class Program
                             }
                         }
                     }
+                    Console.WriteLine();
                     await Task.Delay(5000);
                 }
                 opcClient.Disconnect();
@@ -80,6 +81,7 @@ class Program
 
     private async static void sendDeviceErrorReport(VirtualDevice virtualDevice, OpcDeviceData deviceData)
     {
+        Console.WriteLine("Error from device {0} was reported", deviceData.IoTDeviceId);
         await virtualDevice.SendMessage(deviceData.getErrorsJSON());
         await virtualDevice.UpdateTwinErrorDataAsync(deviceData.DeviceError);
     }

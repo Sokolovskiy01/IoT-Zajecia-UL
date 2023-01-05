@@ -27,10 +27,10 @@ namespace Projekt.VirtualDevice
                 Message message = new Message(Encoding.UTF8.GetBytes(messageData));
                 message.ContentType = MediaTypeNames.Application.Json;
                 message.ContentEncoding = "utf-8";
-                Console.WriteLine($"{DateTime.Now.ToLocalTime()}> D2C Sending message: {messageData}");
+                Console.WriteLine("Sending data to IoT Hub...");
+                //Console.WriteLine($"{DateTime.Now.ToLocalTime()}> D2C Sending message: {messageData}");
 
                 await _deviceClient.SendEventAsync(message);
-                Console.WriteLine();
             }
         }
 
@@ -163,7 +163,7 @@ namespace Projekt.VirtualDevice
 
             await _deviceClient.UpdateReportedPropertiesAsync(reportedProperties);
 
-            Console.WriteLine($"\n{DateTime.Now}> Device Twin Maintenance Done.");
+            Console.WriteLine($"\n{DateTime.Now}> Device Twin Maintenance  Done.");
             return new MethodResponse(0);
         }
 

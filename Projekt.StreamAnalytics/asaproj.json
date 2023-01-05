@@ -1,0 +1,42 @@
+{
+    "name": "device-data-asa",
+    "startFile": "Transformation.asaql",
+    "configurations": [
+        {
+            "filePath": "JobConfig.json",
+            "subType": "JobConfig"
+        },
+        {
+            "filePath": "Outputs/device-errors-reports-output.json",
+            "subType": "Output"
+        },
+        {
+            "filePath": "Outputs/device-kpi-output.json",
+            "subType": "Output"
+        },
+        {
+            "filePath": "Outputs/device-prod-count-output.json",
+            "subType": "Output"
+        },
+        {
+            "filePath": "Outputs/device-temperature-output.json",
+            "subType": "Output"
+        },
+        {
+            "filePath": "Inputs/device-data-input.json",
+            "subType": "Input"
+        },
+        {
+            "filePath": "Outputs/device-decrease-rate-output.json",
+            "subType": "Output"
+        },
+        {
+            "filePath": "Outputs/device-emergency-stop-output.json",
+            "subType": "Output"
+        },
+        {
+            "filePath": "Outputs/device-errors-output.json",
+            "subType": "Output"
+        }
+    ]
+}

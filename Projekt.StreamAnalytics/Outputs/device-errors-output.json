@@ -1,0 +1,19 @@
+{
+    "Name": "device-errors-output",
+    "DataSourceType": "Service Bus Queue",
+    "ServiceBusQueueProperties": {
+        "ServiceBusNamespace": "opc-device-service-bus",
+        "QueueName": "device-errors-bus",
+        "SharedAccessPolicyName": "iothubroutes_iot-zajecia",
+        "SharedAccessPolicyKey": null,
+        "PropertyColumns": [],
+        "SystemPropertyColumns": {}
+    },
+    "DataSourceCredentialDomain": "18e247df-9ff1-4139-a9ec-b34aeda9b3da.StreamAnalystics",
+    "Serialization": {
+        "Type": "Json",
+        "Encoding": "UTF8",
+        "Format": "LineSeparated"
+    },
+    "ScriptType": "Output"
+}
