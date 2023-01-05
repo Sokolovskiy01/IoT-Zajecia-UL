@@ -12,34 +12,29 @@ using Projekt.FunctionApps.Properties;
 
 namespace Projekt.FunctionApps
 {
-    public static class FunctionErrorQueue
+    public static class FunctionDecreaseRateQueue
     {
-
-        [FunctionName("FunctionErrorQueue")]
-        public static async Task Run([ServiceBusTrigger("%ServiceBusErrorQueue%", Connection = "ServiceBusConnectionString")] ServiceBusReceivedMessage message, ServiceBusMessageActions messageActions, ILogger log, ExecutionContext context)
+        [FunctionName("FunctionDecreaseRateQueue")]
+        public static async Task Run([ServiceBusTrigger("%ServiceBusDecreaseRateQueue%", Connection = "ServiceBusConnectionString")] ServiceBusReceivedMessage message, ServiceBusMessageActions messageActions, ILogger log, ExecutionContext context)
         {
-            var messageBody = JsonConvert.DeserializeObject<EmergencyStopErrorMessage>(Encoding.UTF8.GetString(message.Body));
-            log.LogInformation($"Recieved emergency stop message: {message.Body}");
-            //Console.WriteLine("Converted message: {0}, {1}", messageBody.deviceId, messageBody.time);
-            //Console.WriteLine(Resources.IoTHubConnectiontring);
+            var messageBody = JsonConvert.DeserializeObject<DecreaseRateMessage>(Encoding.UTF8.GetString(message.Body));
+            log.LogInformation($"Recieved decrease production rate message: {message.Body}");
 
-            // execute emergency stop on deviceId in payload
             ServiceClient serviceClient = ServiceClient.CreateFromConnectionString(Resources.IoTHubConnectiontring);
 
             log.LogInformation("Emergency stop call result:");
-            CloudToDeviceMethod emergencyStopMethod = new CloudToDeviceMethod("EmergencyStop");
+            CloudToDeviceMethod emergencyStopMethod = new CloudToDeviceMethod("DecreaseProductRate");
             emergencyStopMethod.ResponseTimeout = TimeSpan.FromSeconds(20);
             CloudToDeviceMethodResult emergencyStopMethodResult = await serviceClient.InvokeDeviceMethodAsync(messageBody.deviceId, emergencyStopMethod);
             log.LogInformation(emergencyStopMethodResult.Status.ToString());
             log.LogInformation(emergencyStopMethodResult.GetPayloadAsJson());
         }
 
-        class EmergencyStopErrorMessage
+        class DecreaseRateMessage
         {
             public string deviceId { get; set; }
-            public double errorSum { get; set; }
             public DateTime time { get; set; }
-        }
 
+        }
     }
 }
