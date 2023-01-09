@@ -20,8 +20,6 @@ namespace Projekt.FunctionApps
         {
             var messageBody = JsonConvert.DeserializeObject<EmergencyStopErrorMessage>(Encoding.UTF8.GetString(message.Body));
             log.LogInformation($"Recieved emergency stop message: {message.Body}");
-            //Console.WriteLine("Converted message: {0}, {1}", messageBody.deviceId, messageBody.time);
-            //Console.WriteLine(Resources.IoTHubConnectiontring);
 
             // execute emergency stop on deviceId in payload
             ServiceClient serviceClient = ServiceClient.CreateFromConnectionString(Resources.IoTHubConnectiontring);

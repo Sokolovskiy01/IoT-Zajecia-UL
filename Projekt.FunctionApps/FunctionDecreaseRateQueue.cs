@@ -22,7 +22,7 @@ namespace Projekt.FunctionApps
 
             ServiceClient serviceClient = ServiceClient.CreateFromConnectionString(Resources.IoTHubConnectiontring);
 
-            log.LogInformation("Emergency stop call result:");
+            log.LogInformation("DecreaseProductRate call result:");
             CloudToDeviceMethod emergencyStopMethod = new CloudToDeviceMethod("DecreaseProductRate");
             emergencyStopMethod.ResponseTimeout = TimeSpan.FromSeconds(20);
             CloudToDeviceMethodResult emergencyStopMethodResult = await serviceClient.InvokeDeviceMethodAsync(messageBody.deviceId, emergencyStopMethod);
@@ -34,7 +34,6 @@ namespace Projekt.FunctionApps
         {
             public string deviceId { get; set; }
             public DateTime time { get; set; }
-
         }
     }
 }

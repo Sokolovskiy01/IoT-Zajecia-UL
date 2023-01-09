@@ -1,31 +1,22 @@
---Production per workorder count
+--Production per workorder count every 15 minutes
 SELECT
     System.Timestamp() log_time,
     workorder_id,
     MAX(good_count) AS good_count,
     MAX(bad_count) AS bad_count
-INTO
-    [device-prod-count-output]
-FROM
-    [device-data-input]
-WHERE
-    workorder_id IS NOT NULL
-GROUP BY
-    workorder_id,
-    TumblingWindow(minute, 15)
+INTO [device-prod-count-output]
+FROM [device-data-input]
+WHERE workorder_id IS NOT NULL
+GROUP BY workorder_id, TumblingWindow(minute, 15)
 
--- Device production KPI
+-- Device production KPI every 15 minutes
 SELECT 
     System.Timestamp() time,
     iot_device_id,
     (MAX(good_count)*100)/(MAX(good_count)+MAX(bad_count)) as production_kpi
-INTO
-    [device-kpi-output]
-FROM
-    [device-data-input]
-GROUP BY
-    iot_device_id,
-    TumblingWindow(minute, 15)
+INTO [device-kpi-output]
+FROM [device-data-input]
+GROUP BY iot_device_id, TumblingWindow(minute, 15)
 
 --Device's temperature every 5 minutes
 SELECT
@@ -34,13 +25,9 @@ SELECT
     MAX(temperature) as temperature_max,
     MIN(temperature) as temperature_min,
     AVG(temperature) as temperature_avg
-INTO
-    [device-temperature-output]
-FROM
-    [device-data-input]
-GROUP BY 
-    iot_device_id,
-    TumblingWindow(minute, 5)
+INTO [device-temperature-output]
+FROM [device-data-input]
+GROUP BY iot_device_id, TumblingWindow(minute, 5)
 
 
 --Errors per machine every 30 minutes
@@ -51,13 +38,9 @@ SELECT
     SUM(error_sensor) AS error_sensor_count,
     SUM(error_power) AS error_power_count,
     SUM(error_emergency_stop) AS error_emergency_stop_count
-INTO
-    [device-errors-reports-output]
-FROM
-    [device-data-input]
-GROUP BY
-    iot_device_id,
-    TumblingWindow(minute, 30)
+INTO [device-errors-reports-output]
+FROM [device-data-input]
+GROUP BY iot_device_id, TumblingWindow(minute, 30)
 
 
 --Report any device error
@@ -71,15 +54,10 @@ GROUP BY Tumbling(second, 10)
 SELECT
     System.Timestamp() time,
     iot_device_id AS deviceId
-INTO
-    [device-decrease-rate-output]
-FROM
-    [device-data-input]
-GROUP BY
-    iot_device_id,
-    TumblingWindow(minute, 15)
-HAVING
-    (MAX(good_count)*100)/(MAX(good_count)+MAX(bad_count)) < 90
+INTO [device-decrease-rate-output]
+FROM [device-data-input]
+GROUP BY iot_device_id, TumblingWindow(minute, 15)
+HAVING (MAX(good_count)*100)/(MAX(good_count)+MAX(bad_count)) < 90
 
 
 --Emergency stop on 3 or more device errors within 15 minutes
@@ -87,13 +65,7 @@ SELECT
     System.Timestamp() time,
     iot_device_id AS deviceId,
     SUM(COALESCE(error_emergency_stop,0)) + SUM(COALESCE(error_power,0)) + SUM(COALESCE(error_sensor,0)) + SUM(COALESCE(error_unknown,0)) AS errorSum
-INTO
-    [device-emergency-stop-output]
-FROM
-    [device-data-input]
-GROUP BY
-    iot_device_id,
-    TumblingWindow(minute, 15)
-HAVING
-    errorSum > 3
-
+INTO [device-emergency-stop-output]
+FROM [device-data-input]
+GROUP BY iot_device_id, TumblingWindow(minute, 15)
+HAVING errorSum > 3
