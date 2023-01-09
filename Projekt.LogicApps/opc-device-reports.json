@@ -1,0 +1,165 @@
+{
+    "definition": {
+        "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+        "actions": {
+            "For_each": {
+                "actions": {
+                    "Send_an_email_(V2)": {
+                        "inputs": {
+                            "body": {
+                                "Body": "<p>Power error:@{items('For_each')?['error_power']}<br>\nSensor error:@{items('For_each')?['error_sensor']}<br>\nUnknown error:@{items('For_each')?['error_unknown']}<br>\nEmergency stop:@{items('For_each')?['error_emergency_stop']}<br>\n<br>\nError details:@{items('For_each')}</p>",
+                                "Importance": "Low",
+                                "Subject": "An error occured on device \"@{items('For_each')?['iot_device_id']}\"",
+                                "To": "sokolovskiy01@gmail.com"
+                            },
+                            "host": {
+                                "connection": {
+                                    "name": "@parameters('$connections')['outlook']['connectionId']"
+                                }
+                            },
+                            "method": "post",
+                            "path": "/v2/Mail"
+                        },
+                        "runAfter": {},
+                        "type": "ApiConnection"
+                    }
+                },
+                "foreach": "@body('Parse_JSON')?['allEvents']",
+                "runAfter": {
+                    "Parse_JSON": [
+                        "Succeeded"
+                    ]
+                },
+                "type": "Foreach"
+            },
+            "Parse_JSON": {
+                "inputs": {
+                    "content": "@decodeBase64(triggerBody()['ContentData'])",
+                    "schema": {
+                        "properties": {
+                            "allEvents": {
+                                "items": {
+                                    "properties": {
+                                        "EventEnqueuedUtcTime": {
+                                            "type": "string"
+                                        },
+                                        "EventProcessedUtcTime": {
+                                            "type": "string"
+                                        },
+                                        "IoTHub": {
+                                            "properties": {
+                                                "ConnectionDeviceGenerationId": {
+                                                    "type": "string"
+                                                },
+                                                "ConnectionDeviceId": {
+                                                    "type": "string"
+                                                },
+                                                "CorrelationId": {},
+                                                "EnqueuedTime": {
+                                                    "type": "string"
+                                                },
+                                                "MessageId": {}
+                                            },
+                                            "type": "object"
+                                        },
+                                        "PartitionId": {
+                                            "type": "integer"
+                                        },
+                                        "error_emergency_stop": {
+                                            "type": "boolean"
+                                        },
+                                        "error_power": {
+                                            "type": "boolean"
+                                        },
+                                        "error_sensor": {
+                                            "type": "boolean"
+                                        },
+                                        "error_unknown": {
+                                            "type": "boolean"
+                                        },
+                                        "iot_device_id": {
+                                            "type": "string"
+                                        },
+                                        "is_error": {
+                                            "type": "boolean"
+                                        },
+                                        "opc_device_id": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "opc_device_id",
+                                        "iot_device_id",
+                                        "is_error",
+                                        "error_unknown",
+                                        "error_sensor",
+                                        "error_power",
+                                        "error_emergency_stop",
+                                        "EventProcessedUtcTime",
+                                        "PartitionId",
+                                        "EventEnqueuedUtcTime",
+                                        "IoTHub"
+                                    ],
+                                    "type": "object"
+                                },
+                                "type": "array"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "runAfter": {},
+                "type": "ParseJson"
+            }
+        },
+        "contentVersion": "1.0.0.0",
+        "outputs": {},
+        "parameters": {
+            "$connections": {
+                "defaultValue": {},
+                "type": "Object"
+            }
+        },
+        "triggers": {
+            "Gdy_wiadomość_zostaje_odebrana_w_kolejce_(automatyczne_zakończenie)": {
+                "evaluatedRecurrence": {
+                    "frequency": "Second",
+                    "interval": 10
+                },
+                "inputs": {
+                    "host": {
+                        "connection": {
+                            "name": "@parameters('$connections')['servicebus_1']['connectionId']"
+                        }
+                    },
+                    "method": "get",
+                    "path": "/@{encodeURIComponent(encodeURIComponent('device-errors-bus'))}/messages/head",
+                    "queries": {
+                        "queueType": "Main"
+                    }
+                },
+                "recurrence": {
+                    "frequency": "Second",
+                    "interval": 10
+                },
+                "type": "ApiConnection"
+            }
+        }
+    },
+    "parameters": {
+        "$connections": {
+            "value": {
+                "outlook": {
+                    "connectionId": "/subscriptions/e77219c1-f953-402e-9a51-e71459148498/resourceGroups/iot-zajecia/providers/Microsoft.Web/connections/outlook",
+                    "connectionName": "outlook",
+                    "id": "/subscriptions/e77219c1-f953-402e-9a51-e71459148498/providers/Microsoft.Web/locations/westeurope/managedApis/outlook"
+                },
+                "servicebus_1": {
+                    "connectionId": "/subscriptions/e77219c1-f953-402e-9a51-e71459148498/resourceGroups/iot-zajecia/providers/Microsoft.Web/connections/servicebus-1",
+                    "connectionName": "servicebus-1",
+                    "id": "/subscriptions/e77219c1-f953-402e-9a51-e71459148498/providers/Microsoft.Web/locations/westeurope/managedApis/servicebus"
+                }
+            }
+        }
+    }
+}

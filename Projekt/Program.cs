@@ -18,7 +18,7 @@ class Program
             {
                 opcClient.Connect();
 
-                OpcNodeInfo serverNode = opcClient.BrowseNode(OpcObjectTypes.ObjectsFolder);
+                //OpcNodeInfo serverNode = opcClient.BrowseNode(OpcObjectTypes.ObjectsFolder);
 
                 // Zakładamy, że mamy 6 urządzeń na produkcji i na iot Hub
                 //Connect IoT Hub devices to Opc Client
@@ -55,6 +55,7 @@ class Program
                     foreach (var device in iotHubDeviceToOpcDeviceData)
                     {
                         int prevErrorCode = device.Value.DeviceError;
+                        int prevProdRate = device.Value.ProductionRate;
                         readOpcDeviceData(opcClient, device.Value);
                         if (device.Value.ProductionStatus == 1)
                         {
@@ -62,6 +63,10 @@ class Program
                             if (device.Value.DeviceError > 0 && device.Value.DeviceError != prevErrorCode)
                             {
                                 sendDeviceErrorReport(device.Key, device.Value);
+                            }
+                            if (device.Value.ProductionRate != prevProdRate)
+                            {
+                                await device.Key.UpdateTwinProductionRateAsync(device.Value.DeviceError, device.Value.ProductionRate);
                             }
                         }
                     }

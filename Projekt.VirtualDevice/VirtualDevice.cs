@@ -28,7 +28,7 @@ namespace Projekt.VirtualDevice
                 message.ContentType = MediaTypeNames.Application.Json;
                 message.ContentEncoding = "utf-8";
                 Console.WriteLine("Sending data to IoT Hub...");
-                //Console.WriteLine($"{DateTime.Now.ToLocalTime()}> D2C Sending message: {messageData}");
+                Console.WriteLine($"{DateTime.Now.ToLocalTime()}> D2C Sending message: {messageData}");
 
                 await _deviceClient.SendEventAsync(message);
             }
