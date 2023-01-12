@@ -1,0 +1,8 @@
+{"log_time":"2023-01-05T06:45:00.0000000Z","iot_device_id":"Device_1","temperature_max":114.98098146567648,"temperature_min":61.59574624889269,"temperature_avg":82.07062627990496}
+{"log_time":"2023-01-05T06:45:00.0000000Z","iot_device_id":"Device_3","temperature_max":993.0,"temperature_min":-528.0,"temperature_avg":90.55023006134572}
+{"log_time":"2023-01-05T06:45:00.0000000Z","iot_device_id":"Device_2","temperature_max":98.44644460683662,"temperature_min":60.481316198803384,"temperature_avg":77.59805131263498}
+{"log_time":"2023-01-05T06:45:00.0000000Z","iot_device_id":"Device_4","temperature_max":101.6926375490853,"temperature_min":60.12812719778304,"temperature_avg":78.84747487582923}
+{"log_time":"2023-01-05T06:50:00.0000000Z","iot_device_id":"Device_1","temperature_max":96.45295756321852,"temperature_min":65.8540277955797,"temperature_avg":75.84083846796185}
+{"log_time":"2023-01-05T06:50:00.0000000Z","iot_device_id":"Device_3","temperature_max":74.56207752323947,"temperature_min":64.3628040798909,"temperature_avg":70.19590771803112}
+{"log_time":"2023-01-05T06:50:00.0000000Z","iot_device_id":"Device_2","temperature_max":93.71462462922338,"temperature_min":61.59177058914085,"temperature_avg":82.05097876360112}
+{"log_time":"2023-01-05T06:50:00.0000000Z","iot_device_id":"Device_4","temperature_max":89.10784651942606,"temperature_min":70.86220419573762,"temperature_avg":81.53033949872646}

@@ -1,0 +1,12 @@
+{"time":"2023-01-09T18:30:00.0000000Z","iot_device_id":"Device_5","error_unknown_count":null,"error_sensor_count":null,"error_power_count":null,"error_emergency_stop_count":null}
+{"time":"2023-01-09T18:30:00.0000000Z","iot_device_id":"Device_6","error_unknown_count":null,"error_sensor_count":null,"error_power_count":null,"error_emergency_stop_count":null}
+{"time":"2023-01-09T18:30:00.0000000Z","iot_device_id":"Device_1","error_unknown_count":3.0,"error_sensor_count":5.0,"error_power_count":6.0,"error_emergency_stop_count":0.0}
+{"time":"2023-01-09T18:30:00.0000000Z","iot_device_id":"Device_3","error_unknown_count":0.0,"error_sensor_count":1.0,"error_power_count":1.0,"error_emergency_stop_count":0.0}
+{"time":"2023-01-09T18:30:00.0000000Z","iot_device_id":"Device_2","error_unknown_count":null,"error_sensor_count":null,"error_power_count":null,"error_emergency_stop_count":null}
+{"time":"2023-01-09T18:30:00.0000000Z","iot_device_id":"Device_4","error_unknown_count":null,"error_sensor_count":null,"error_power_count":null,"error_emergency_stop_count":null}
+{"time":"2023-01-09T19:00:00.0000000Z","iot_device_id":"Device_5","error_unknown_count":null,"error_sensor_count":null,"error_power_count":null,"error_emergency_stop_count":null}
+{"time":"2023-01-09T19:00:00.0000000Z","iot_device_id":"Device_6","error_unknown_count":null,"error_sensor_count":null,"error_power_count":null,"error_emergency_stop_count":null}
+{"time":"2023-01-09T19:00:00.0000000Z","iot_device_id":"Device_1","error_unknown_count":3.0,"error_sensor_count":3.0,"error_power_count":5.0,"error_emergency_stop_count":0.0}
+{"time":"2023-01-09T19:00:00.0000000Z","iot_device_id":"Device_3","error_unknown_count":null,"error_sensor_count":null,"error_power_count":null,"error_emergency_stop_count":null}
+{"time":"2023-01-09T19:00:00.0000000Z","iot_device_id":"Device_2","error_unknown_count":0.0,"error_sensor_count":1.0,"error_power_count":0.0,"error_emergency_stop_count":0.0}
+{"time":"2023-01-09T19:00:00.0000000Z","iot_device_id":"Device_4","error_unknown_count":null,"error_sensor_count":null,"error_power_count":null,"error_emergency_stop_count":null}
