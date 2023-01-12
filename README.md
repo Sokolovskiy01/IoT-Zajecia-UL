@@ -6,14 +6,18 @@ Project Documentation file: documentation.pdf
 ## Project depencencies
 
 ### Project.sln:
-> Microsoft.Azure.Devices
-> Microsoft.Azure.Devices.Client
-> Projekt.VirtualDevice
+```
+Microsoft.Azure.Devices
+Microsoft.Azure.Devices.Client
+Projekt.VirtualDevice
+```
 
 ### Projekt.FunctionApps.sln:
-> Microsoft.Azure.Devices
-> Microsoft.Azure.WebJobs.Extensions.ServiceBus
-> Microsoft.NET.Sdk.Functions
+```
+Microsoft.Azure.Devices
+Microsoft.Azure.WebJobs.Extensions.ServiceBus
+Microsoft.NET.Sdk.Functions
+```
 
 ## Project startup
 
